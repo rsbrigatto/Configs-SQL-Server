@@ -8,7 +8,7 @@ EXEC sys.sp_configure N'cost threshold for parallelism', N'50';
 EXEC sys.sp_configure N'remote admin connections', N'1';
 EXEC sys.sp_configure N'backup compression default', N'1';
 
--- Definir memória do SQL Server para 90 da memória do servidor
+-- Definir memória do SQL Server para 90% da memória do servidor
 DECLARE @stringToExecute NVARCHAR(400);
 SELECT @stringToExecute = N'EXEC sys.sp_configure N''max server memory (MB)'', N'''
 	+ CAST(CAST(physical_memory_kb / 1024 * .9 AS INT) AS NVARCHAR(20)) + N''';'
